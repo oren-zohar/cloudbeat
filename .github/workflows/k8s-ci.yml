@@ -47,11 +47,8 @@ jobs:
           version: latest
           args: BuildOpaBundle
 
-      - name: Install Docker
-        run: |
-          brew install --cask docker
-          open /Applications/Docker.app  # start docker
-          sleep 120  # give it some more time to start
+      - run: brew install docker colima
+      - run: colima start
       - name: Verify Docker installation
         run: |
           docker ps  # should work if Docker is correctly installed
