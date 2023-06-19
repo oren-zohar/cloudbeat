@@ -47,6 +47,15 @@ jobs:
           version: latest
           args: BuildOpaBundle
 
+      - name: Install Docker
+        run: |
+          brew install --cask docker
+          open /Applications/Docker.app  # start docker
+          sleep 60  # give it some time to start
+      - name: Verify Docker installation
+        run: |
+          docker ps  # should work if Docker is correctly installed
+        
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
