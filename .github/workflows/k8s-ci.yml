@@ -46,12 +46,6 @@ jobs:
         with:
           version: latest
           args: BuildOpaBundle
-
-      - run: brew install docker colima
-      - run: colima start
-      - name: Verify Docker installation
-        run: |
-          docker ps  # should work if Docker is correctly installed
         
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
